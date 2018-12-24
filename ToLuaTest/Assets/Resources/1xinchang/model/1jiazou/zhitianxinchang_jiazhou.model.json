@@ -1,0 +1,10 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "zhitianxinchang_jiazhou",
+	"model": "zhitianxinchang_jiazhou.moc",
+	"textures": [
+		"zhitianxinchang_jiazhou.2048/texture_00.png",
+		"zhitianxinchang_jiazhou.2048/texture_01.png",
+		"zhitianxinchang_jiazhou.2048/texture_02.png"
+	]
+}

@@ -51,7 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\TestL2D.cs" />
      <Compile Include="Assets\Source\Generate\DelegateFactory.cs" />
+     <Compile Include="Assets\Source\Generate\live2d_ALive2DModelWrap.cs" />
+     <Compile Include="Assets\Source\Generate\live2d_Live2DModelUnityWrap.cs" />
+     <Compile Include="Assets\Source\Generate\live2d_Live2DWrap.cs" />
      <Compile Include="Assets\Source\Generate\LuaBinder.cs" />
      <Compile Include="Assets\Source\Generate\LuaInterface_DebuggerWrap.cs" />
      <Compile Include="Assets\Source\Generate\LuaInterface_InjectTypeWrap.cs" />
@@ -210,7 +214,12 @@
      <Compile Include="Assets\ToLua\Reflection\LuaMethod.cs" />
      <Compile Include="Assets\ToLua\Reflection\LuaProperty.cs" />
      <Compile Include="Assets\ToLua\Reflection\LuaReflection.cs" />
+     <None Include="Assets\Live2D\Resources\shader\Live2D-SetupMask.shader" />
      <None Include="Assets\link.xml" />
+     <None Include="Assets\Live2D\Resources\shader\merged\Live2D.shader" />
+     <None Include="Assets\Live2D\Resources\shader\merged\Live2D-Masked-PremultipliedAlpha.shader" />
+     <None Include="Assets\Live2D\Resources\shader\merged\Live2D-Masked.shader" />
+     <None Include="Assets\Live2D\Resources\shader\merged\Live2D-PremultipliedAlpha.shader" />
      <None Include="Assets\ToLua\Injection\InjectionBridgeEditorInfo.xml" />
      <None Include="Assets\ToLua\readme.txt" />
      <None Include="Assets\ToLua\Injection\LuaInjectionSkipPaths.txt" />
@@ -380,6 +389,12 @@
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
+ <Reference Include="CString">
+ <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/CString.dll</HintPath>
+ </Reference>
+ <Reference Include="Debugger">
+ <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/Debugger.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/111/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
  </Reference>
@@ -389,11 +404,8 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/111/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
- <Reference Include="CString">
- <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/CString.dll</HintPath>
- </Reference>
- <Reference Include="Debugger">
- <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/Debugger.dll</HintPath>
+ <Reference Include="Live2DUnity">
+ <HintPath>E:/Code/Unity/ToLuaTest/Assets/Live2D/Live2DUnity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

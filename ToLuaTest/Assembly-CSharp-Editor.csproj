@@ -274,6 +274,12 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="CString">
+ <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/CString.dll</HintPath>
+ </Reference>
+ <Reference Include="Debugger">
+ <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/Debugger.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Users/111/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -292,11 +298,8 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/111/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
- <Reference Include="CString">
- <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/CString.dll</HintPath>
- </Reference>
- <Reference Include="Debugger">
- <HintPath>E:/Code/Unity/ToLuaTest/Assets/Plugins/Debugger.dll</HintPath>
+ <Reference Include="Live2DUnity">
+ <HintPath>E:/Code/Unity/ToLuaTest/Assets/Live2D/Live2DUnity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
