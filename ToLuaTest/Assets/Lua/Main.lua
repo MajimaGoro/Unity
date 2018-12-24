@@ -6,9 +6,14 @@ function Main()
     local Live2DModelUnity = live2d.Live2DModelUnity;
 
     Live2D.init();
-    local filePath = UnityEngine.Application.dataPath.."\\Resources/1xinchang/model/1jiazou/zhitianxinchang_jiazhou.moc";
+    local filePath = UnityEngine.Application.dataPath.."\\Resources/1xinchang/model/1jiazou/zhitianxinchang_jiazhou.moc.bytes";
     print("filePath: "..filePath);
-    local live2DModel = Live2DModelUnity.loadModel(filePath);
+
+	local fs = FileStream(filePath, FileMode.Open, FileAccess.Read);
+    local buffur = {};
+    fs.Read(buffur, 0, fs.Length);
+    fs.Close();
+    local live2DModel = Live2DModelUnity.loadModel(buffur);
 
 end
 

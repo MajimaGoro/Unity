@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using live2d;
+//using live2d;
+using LuaInterface;
 
 public class TestL2D : LuaClient {
-    private Live2DModelUnity live2DModel;
+    /*private Live2DModelUnity live2DModel;
     private Live2DMotion motion;
     private MotionQueueManager motionMgr;
 
     // Use this for initialization
-    /*void Start () {
+    void Start () {
         Live2D.init();
 
         string filePath = UnityEngine.Application.dataPath + "\\Resources/1xinchang/model/1jiazou/zhitianxinchang_jiazhou.moc.bytes";
@@ -47,4 +48,46 @@ public class TestL2D : LuaClient {
     {
         live2DModel.draw();
     }*/
+
+
+    private LuaFunction start;
+    private LuaFunction update;
+    private LuaFunction onRenderObject;
+
+    protected override void CallMain()
+    {
+        /*LuaFunction main = luaState.GetFunction("Main");
+        main.Call();
+        main.Dispose();
+        main = null;*/
+        string filePath = UnityEngine.Application.dataPath+"\\Resources/1xinchang/model/1jiazou/zhitianxinchang_jiazhou.moc.bytes";
+        byte[] buffer = System.IO.File.ReadAllBytes(filePath);
+    }
+
+    protected override void StartMain()
+    {
+        string fullPath = Application.dataPath + "\\Scripts";
+        luaState.AddSearchPath(fullPath);
+        luaState.DoFile("TestLuaL2D.lua");
+        start = luaState.GetFunction("start");
+        update = luaState.GetFunction("update");
+        onRenderObject = luaState.GetFunction("onRenderObject");
+        CallMain();
+    }
+
+
+    void Start()
+    {
+        start.Call();
+    }
+
+    void Update()
+    {
+        update.Call();
+    }
+
+    void OnRenderObject()
+    {
+        onRenderObject.Call();
+    }
 }
