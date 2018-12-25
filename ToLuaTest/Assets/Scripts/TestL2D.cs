@@ -78,7 +78,12 @@ public class TestL2D : LuaClient {
 
     void Start()
     {
-        start.Call();
+        //luaState.Push(transform);
+        //start.Call();
+        start.BeginPCall();
+        start.Push(transform);
+        start.PCall();
+        start.EndPCall();
     }
 
     void Update()

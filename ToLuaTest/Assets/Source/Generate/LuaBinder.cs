@@ -55,6 +55,7 @@ public static class LuaBinder
 		UnityEngine_QualitySettingsWrap.Register(L);
 		UnityEngine_RenderSettingsWrap.Register(L);
 		UnityEngine_ResourcesWrap.Register(L);
+		UnityEngine_Matrix4x4Wrap.Register(L);
 		L.BeginModule("Events");
 		L.RegFunction("UnityAction", UnityEngine_Events_UnityAction);
 		L.EndModule();
@@ -74,7 +75,10 @@ public static class LuaBinder
 		L.BeginModule("live2d");
 		live2d_Live2DModelUnityWrap.Register(L);
 		live2d_Live2DWrap.Register(L);
+		live2d_Live2DMotionWrap.Register(L);
+		live2d_MotionQueueManagerWrap.Register(L);
 		live2d_ALive2DModelWrap.Register(L);
+		live2d_AMotionWrap.Register(L);
 		L.EndModule();
 		L.BeginModule("System");
 		L.RegFunction("Action", System_Action);
@@ -83,6 +87,9 @@ public static class LuaBinder
 		L.RegFunction("Comparison_int", System_Comparison_int);
 		L.RegFunction("Func_int_int", System_Func_int_int);
 		L.RegFunction("Action_UnityEngine_AsyncOperation", System_Action_UnityEngine_AsyncOperation);
+		L.BeginModule("IO");
+		System_IO_FileWrap.Register(L);
+		L.EndModule();
 		L.EndModule();
 		L.EndModule();
 		L.BeginPreLoad();

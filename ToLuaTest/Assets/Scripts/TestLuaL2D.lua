@@ -1,9 +1,13 @@
 -- start
 local Live2D = live2d.Live2D;
 local Live2DModelUnity = live2d.Live2DModelUnity;
+local Live2DMotion = live2d.Live2DMotion;
+local MotionQueueManager = live2d.MotionQueueManager;
 local live2DModel;
+local motion;
+local motionMgr;
 
-function start()                 
+function start(transform)                 
     Live2D.init();
     local filePath = UnityEngine.Application.dataPath.."\\Resources/1xinchang/model/1jiazou/zhitianxinchang_jiazhou.moc.bytes";
     print("filePath: "..filePath);
@@ -11,6 +15,7 @@ function start()
     local file = io.open(filePath, "r");
     local str = file:read("*a");
     print(str);
+    print(string.len(str));
     -- 关闭打开的文件
     file:close()
 
@@ -21,6 +26,7 @@ function start()
  --    fs.Close();
 
     local buffer = System.IO.File.ReadAllBytes(filePath);
+    print(tostring(buffer));
     live2DModel = Live2DModelUnity.loadModel(buffer);
 
     for i=0,2 do
@@ -30,30 +36,39 @@ function start()
 
     local modelWidth = live2DModel:getCanvasWidth();
     print("modelWidth:"..modelWidth);
-    -- local m1 = UnityEngine.Matrix4x4.Ortho(0, modelWidth, modelWidth, 0, -50, 50);
-    -- local m2 = UnityEngine.Transform.get_localToWorldMatrix;
-    -- local m3 = m2 * m1;
-    local m3 = {
-        1,0,0,0,
-        0,1,0,0,
-        0,0,1,0,
-        0,0,0,0,
-    };
+    local m1 = UnityEngine.Matrix4x4.Ortho(0, modelWidth, modelWidth, 0, -50, 50);
+    print(tostring(m1));
+    print(tostring(transform));
+    local m2 = transform.localToWorldMatrix;
+    print(tostring(m2));
+    local m3 = m2 * m1;
+    print(tostring(m3));
+    -- local m3 = {
+    --     1,0,0,0,
+    --     0,1,0,0,
+    --     0,0,1,0,
+    --     0,0,0,0,
+    -- };
     live2DModel:setMatrix(m3);
+
+    local buffer = System.IO.File.ReadAllBytes(UnityEngine.Application.dataPath.."\\Resources/1xinchang/motions/ztxc_1_shenshou.mtn");
+    print(tostring(buffer));
+    motion = Live2DMotion.loadMotion(buffer);
+    motionMgr = MotionQueueManager.New();
 end
 
 -- update
 function update()
-    -- if (motionMgr.isFinished() == true)
-    --     motionMgr.startMotion(motion);
-    -- motionMgr.updateParam(live2DModel);
-    do return end;
+    if motionMgr:isFinished() == true then
+        motionMgr:startMotion(motion);
+    end
+    motionMgr:updateParam(live2DModel);
     live2DModel:update();
 end
 
 -- onRenderObject
 function onRenderObject()
-    do return end;
+    -- do return end;
     live2DModel:draw();
 end
 

@@ -155,6 +155,11 @@ public static class CustomSettings
         // live2d
         _GT(typeof(Live2DModelUnity)),
         _GT(typeof(Live2D)),
+        _GT(typeof(Live2DMotion)),
+        _GT(typeof(MotionQueueManager)),
+
+        _GT(typeof(System.IO.File)),
+        _GT(typeof(Matrix4x4)),
     };
 
     public static List<Type> dynamicList = new List<Type>()
